@@ -39,5 +39,5 @@ docker build . -t backend
 ```
 2- posteriomente crie um container a partir da imagen linkando com o container do banco oracle
 ```bash
-docker run -p 8086:8086 --name backend-devtest2 --link oracletest:store/oracle/database-enterprise -d backend6
+docker run -p 8086:8086 --name backend-dev --link oracletest:store/oracle/database-enterprise -d backend
 ```
