@@ -41,3 +41,7 @@ docker build . -t backend
 ```bash
 docker run -p 8086:8086 --name backend-dev --link oracletest:store/oracle/database-enterprise -d backend
 ```
+## Teste
+1-na pasta acima do root desse projeto execute o seguinte comando para executar os teste em python
+```bash
+python testintegrado.py
