@@ -37,13 +37,13 @@ class TestBrasilPrev(unittest.TestCase):
         self.assertEqual(r1.status_code,500)
     
     def test7_update_cliente(self):
-        r1 = requests.put(url_base_user_server +"/11" ,json={"name":"LuffyGear4","cpf": "86777385681" ,"adress":"west blue"}, auth = HTTPBasicAuth('test', 'teste11'))
+        r1 = requests.put(url_base_user_server +"/1" ,json={"name":"LuffyGear4","cpf": "86777385681" ,"adress":"west blue"}, auth = HTTPBasicAuth('test', 'teste11'))
         self.assertEqual(r1.status_code,204)
     def test8_update_cliente_inexistente(self): 
         r1 = requests.put(url_base_user_server +"/0" ,json={"name":"LuffyGear4","cpf": "86777385681" ,"adress":"west blue"}, auth = HTTPBasicAuth('test', 'teste11'))
         self.assertEqual(r1.status_code,404)
     def test9_deleta_cliente(self):
-        r1 = requests.delete(url_base_user_server +"/11",auth = HTTPBasicAuth('test', 'teste11'))
+        r1 = requests.delete(url_base_user_server +"/1",auth = HTTPBasicAuth('test', 'teste11'))
         self.assertEqual(r1.status_code,204)
     def test10_deleta_cliente_inexistente(self):
         r1 = requests.delete(url_base_user_server +"/0",auth = HTTPBasicAuth('test', 'teste11'))
