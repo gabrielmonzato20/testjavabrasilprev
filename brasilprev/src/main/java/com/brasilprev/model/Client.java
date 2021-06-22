@@ -9,6 +9,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @EqualsAndHashCode(of = {"id"})
 @ToString(exclude="id")
+@AllArgsConstructor
 public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

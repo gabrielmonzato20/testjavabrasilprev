@@ -40,9 +40,13 @@ public class ClientResource {
         @PostMapping
         public ResponseEntity<Void> save(@RequestBody Client client) {
             log.info("Start-save");
+            try {
+                client = clientService.save(client);
+            }catch (Exception e){
+                e.printStackTrace();
+                return ResponseEntity.notFound().build();
 
-            client = clientService.save(client);
-
+            }
             URI uri = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(client.getId()).toUri();
             log.info("End-save");
             return ResponseEntity.created(uri).build();
@@ -52,7 +56,13 @@ public class ClientResource {
         public ResponseEntity<Void> update(@PathVariable Long id, @RequestBody Client client) {
             log.info("Start-update");
             client.setId(id);
+            try{
             clientService.update(client);
+            }catch (Exception e){
+                e.printStackTrace();
+                return ResponseEntity.notFound().build();
+
+            }
             log.info("Start-update");
             return ResponseEntity.noContent().build();
         }
